@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}UBAH NASABAH{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content %}
+<h1 class="heading" style="text-align: center; padding: auto"><b>UBAH NASABAH</b></h1>
+<form action="/update/{{employee.id}}" method="POST">
+    {% csrf_token %}
+    <div class="form-group row">
+        <label for="nik">NIK NASABAH</label>
+        <input type="text" class="form-control" name="nik" id="id_nik" placeholder="Masukkan NIK Karyawan"
+               name="nik" value="{{ employee.nik }}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group row">
+        <label for="nama">NAMA NASABAH</label>
+        <input type="text" class="form-control" name="nama" id="id_nama" placeholder="Masukkan Nama Karyawan"
+               name="nama" value="{{ employee.nama }}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group row">
+        <label for="alamat">ALAMAT NASABAH</label>
+        <input type="text" class="form-control" name="alamat" id="id_alamat" placeholder="Masukkan Alamat Karyawan"
+               name="alamat" value="{{ employee.alamat }}">
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="submit" id="kirim" class="btn btn-primary">Kirim !</button>
+        <a href="/">
+            <button type="button" name="button" id="kembali" class="btn btn-primary">Kembali</button>
+        </a>
+    </div>
+</form>
+{% endblock content %}   
